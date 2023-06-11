@@ -3,7 +3,7 @@
 This project is to demonstrate the validation results in different way. 
 
 My case focus on invoking API and doing some validations. For example, creating a Todo object via RESTFul API,
-the code need to validate its values (check non-null or allow the max length of string object).
+the code needs to validate its values (check non-null or allow the max length of string object).
 
 In this project, I use H2 as our database. The main table schema as below (refer to /src/java/resources/h2_schema.sql).
 ```sql
@@ -94,7 +94,7 @@ please note that we invoked `/v1/todo` here.
 ## 2. JPA constraint
 Actually, annotation `@Column` only works for DDL schema generation. It is not responsible for validation,
 but we can enable it to check fields by setting `spring.jpa.properties.hibernate.check_nullability=true`. 
-Then, try re-create an invalid request as *1. Database constraint*. you will see `org.springframework.dao.DataIntegrityViolationException`,
+Then, try to re-create an invalid request as *1. Database constraint*. you will see `org.springframework.dao.DataIntegrityViolationException`,
 and the root cause changes to `org.hibernate.PropertyValueException` showed in logging. This means the code will not send insert SQL to database
 , hence, it can reduce the database validation loading.
 
@@ -206,7 +206,7 @@ curl --location 'http://127.0.0.1:8080/v3/todo' \
 please note that we invoked `/v3/todo` here.
 
 ## Conclusion
-Comparison of above's different way, I recommend using Bean Validation is a better option, because it's not related to 
+Comparison of above's different ways, I recommend using Bean Validation is a better option, because it's not related to 
 any database, and could be used in different layers. It also mitigates the database constraint loading. 
 
 # Appendix
