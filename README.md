@@ -78,6 +78,7 @@ and the root cause is `java.sql.SQLIntegrityConstraintViolationException` showed
 
 ```shell
 curl --location 'http://127.0.0.1:8080/v1/todo' \
+--header 'Content-Type: application/json' \
 --data '{
     "name" : "12345678901"
 }'
