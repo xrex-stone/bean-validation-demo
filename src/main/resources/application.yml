@@ -11,5 +11,5 @@ spring:
     generate-ddl: false
     properties:
       hibernate:
-        check_nullability: true
+        check_nullability: false
 
